@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Prepare Your Files for Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.8;
+        }
+        header {
+            background: linear-gradient(90deg, #005fab, #0077ff);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2em;
+            font-weight: 400;
+            margin-top: 10px;
+            color: #cde1ff;
+        }
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        section {
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            transition: transform 0.2s;
+        }
+        section:hover {
+            transform: translateY(-3px);
+        }
+        section h2 {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #005fab;
+            margin-bottom: 20px;
+        }
+        .collapsible {
+            background-color: #f4f6f9;
+            color: #333;
+            cursor: pointer;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+        }
+        .collapsible:hover {
+            background-color: #e6f0ff;
+        }
+        .content {
+            padding: 20px;
+            display: none;
+            overflow: hidden;
+            background-color: #f9fbff;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table th, table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        table th {
+            background-color: #f4f6f9;
+            color: #555;
+        }
+        a {
+            color: #005fab;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #005fab;
+            color: white;
+            border-radius: 0 0 12px 12px;
+        }
+        footer a {
+            color: #cde1ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>How to Prepare Your Files for Analysis</h1>
+    <p>Follow these simple steps to create and upload your CRM data for the sales pipeline analysis.</p>
+</header>
+
+<main>
+    <section>
+        <h2>Pipeline File</h2>
+        <p><strong>Please download data with your current pipeline data from your CRM.</strong> Ensure the file contains the following fields:</p>
+        <button class="collapsible">View Required Fields</button>
+        <div class="content">
+            <table>
+                <tr><th>Field Name</th><th>Description</th><th>Example</th></tr>
+                <tr><td>Account Name</td><td>Name of the client or company.</td><td>Company1</td></tr>
+                <tr><td>Created Date</td><td>Date the opportunity was created.</td><td>2024-05-01</td></tr>
+                <tr><td>Opportunity Name</td><td>Unique name of the opportunity.</td><td>Deal1</td></tr>
+                <tr><td>Opportunity Owner</td><td>Name of the user managing it.</td><td>User1</td></tr>
+                <tr><td>Stage</td><td>Current stage of the opportunity.</td><td>Negotiation</td></tr>
+                <tr><td>Type</td><td>Type of opportunity (e.g., New Customer, Renewal).</td><td>New Customer</td></tr>
+                <tr><td>Net-New Dollars</td><td>Value of the deal.</td><td>$50,000</td></tr>
+                <tr><td>Close Date</td><td>Expected or actual close date.</td><td>2024-06-30</td></tr>
+                <tr><td>Age</td><td>Duration since creation.</td><td>60 days</td></tr>
+                <tr><td>Discovery Date</td><td>Date the opportunity was discovered.</td><td>2024-04-01</td></tr>
+            </table>
+            <p><strong>File Format:</strong> Accepted File Types: .csv or .xlsx</p>
+            <p><a href="#">Download Pipeline Template</a></p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Opportunity History File</h2>
+        <p><strong>Please download data with your opportunity history from your CRM.</strong> Ensure the file contains the following fields:</p>
+        <button class="collapsible">View Required Fields</button>
+        <div class="content">
+            <table>
+                <tr><th>Field Name</th><th>Description</th><th>Example</th></tr>
+                <tr><td>Opportunity Name</td><td>Unique name of the opportunity.</td><td>Deal1</td></tr>
+                <tr><td>To Stage</td><td>Stage the opportunity transitioned to.</td><td>Closed Won</td></tr>
+                <tr><td>From Stage</td><td>Stage the opportunity transitioned from.</td><td>Negotiation</td></tr>
+                <tr><td>Amount</td><td>Value of the deal.</td><td>$50,000</td></tr>
+                <tr><td>Probability (%)</td><td>Probability of closing the deal.</td><td>90%</td></tr>
+                <tr><td>Close Date</td><td>Expected or actual close date.</td><td>2024-06-30</td></tr>
+                <tr><td>Last Modified</td><td>Date when the record was last updated.</td><td>2024-06-01</td></tr>
+                <tr><td>Last Modified By</td><td>Name of the user who last updated it.</td><td>User1</td></tr>
+                <tr><td>Owner</td><td>Name of the owner managing the opportunity.</td><td>User2</td></tr>
+            </table>
+            <p><strong>File Format:</strong> Accepted File Types: .csv or .xlsx</p>
+            <p><a href="#">Download Opportunity History Template</a></p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Upload Instructions</h2>
+        <ol>
+            <li>Click on the <strong>Pipeline Upload</strong> button and select your file.</li>
+            <li>Click on the <strong>Opportunity History Upload</strong> button and select your file.</li>
+            <li>Use the <strong>date selector</strong> to define your analysis period.</li>
+            <li>Click <strong>Generate Chart</strong> to view your sales pipeline waterfall chart.</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>FAQ Section</h2>
+        <p><strong>What happens if my file doesn’t have all the required fields?</strong></p>
+        <p>The system will alert you to missing or mismatched fields.</p>
+        <p><strong>Can I use this tool with any CRM?</strong></p>
+        <p>Yes, as long as you can export the required fields into a CSV or Excel file.</p>
+    </section>
+</main>
+
+<footer>
+    <p>Quick Links: <a href="#">Contact Support</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+</footer>
+
+<script>
+    // Collapsible content script
+    document.querySelectorAll(".collapsible").forEach(button => {
+        button.addEventListener("click", () => {
+            const content = button.nextElementSibling;
+            button.classList.toggle("active");
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        });
+    });
+</script>
+
+</body>
+</html>

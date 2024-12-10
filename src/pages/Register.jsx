@@ -1,5 +1,5 @@
 import React from 'react'
-import GoogleIcon from '../assets/icons/google.svg'
+// import GoogleIcon from '../assets/icons/google.svg'
 import { Link } from 'react-router-dom'
 const Register = () => {
   return (
@@ -10,16 +10,16 @@ const Register = () => {
       <div className='text-xl mt-8'>
         Increase your limits for free simply by registering.
       </div>
-      <button className='w-full bg-white text-center  py-3 rounded-md border border-primary text-[#383838] flex items-center justify-center relative mt-6'>
+      {/* <button className='w-full bg-white text-center  py-3 rounded-md border border-primary text-[#383838] flex items-center justify-center relative mt-6'>
         <img src={GoogleIcon} alt='' className='w-10 absolute left-2' />
         Sign in with Google
-      </button>
+      </button> */}
       <div className='flex flex-col mt-4'>
         <Link to='/forgot' className='text-primary text-lg'>
           Forgot Password?
         </Link>
-        <Link to='/legacy-register' className='text-primary text-lg'>
-          Register with Email?
+        <Link to='/register' className='text-primary text-lg'>
+          Register?
         </Link>
       </div>
     </div>

@@ -1,20 +1,7 @@
-// src/ChartComponent.js
 import React from 'react'
-import { Line } from 'react-chartjs-2'
+import { Bar } from 'react-chartjs-2'
 import {
   Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement, // Import PointElement for points on the chart
-  LineElement,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-} from 'chart.js'
-
-// Register all necessary components
-ChartJS.register(
   CategoryScale,
   LinearScale,
   PointElement,
@@ -23,9 +10,37 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend
+} from 'chart.js'
+import ChartDataLabels from 'chartjs-plugin-datalabels'
+
+// Register all necessary components, including the datalabels plugin
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  ChartDataLabels
 )
-const ChartPanel = ({ data, options }) => {
-  return <Line data={data} options={options} />
+
+const ChartPanel = ({ data, options, clickChart }) => {
+  // Handler function for click events
+  const handleClick = (event, chart) => {
+    if (chart) clickChart(chart.index)
+  }
+
+  return (
+    <Bar
+      data={data}
+      options={{
+        ...options,
+        onClick: (event, elements) => handleClick(event, elements[0])
+      }}
+    />
+  )
 }
 
 export default ChartPanel
