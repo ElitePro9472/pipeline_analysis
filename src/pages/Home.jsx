@@ -69,17 +69,17 @@ const dataFileFormat = [
   'Opportunity Name',
   'Opportunity Owner',
   'Stage',
-  'Lead Source',
-  'Opportunity Source',
+  // 'Lead Source',
+  // 'Opportunity Source',
   'Type',
-  'Primary ERP',
+  // 'Primary ERP',
   'Net-New Dollars',
   'Close Date',
   'Age',
-  'Discovery Date',
-  'Lost Reason',
-  'SQL Quarter',
-  'Closed Quarter\r'
+  'Discovery Date\r'
+  // 'Lost Reason',
+  // 'SQL Quarter',
+  // 'Closed Quarter\r'
 ]
 const historyFileFormat = [
   'Opportunity Name',
@@ -199,10 +199,10 @@ const Home = () => {
         </h1>
         <a
           href='/instruction.html'
-          className='ml-4 text-blue-600'
+          className='ml-4 text-blue-600 text-2xl underline'
           target='_blank'
         >
-          Instruction
+          Instructions here
         </a>
       </div>
 
@@ -210,23 +210,30 @@ const Home = () => {
         <FileUploadInput
           id='upload-data'
           name='file-upload-data'
+          step='Step 1:'
           title='Upload your current state pipeline data'
           loadFile={e => loadCSV(e, 'data')}
         />
         <FileUploadInput
           id='upload-history'
           name='file-upload-history'
+          step='Step 2:'
           title='Upload your pipeline history'
           loadFile={e => loadCSV(e, 'history')}
         />
       </div>
-      <div className='w-full flex justify-center mt-8'>
+      <div className='w-full  mt-4'>
+        <p className='w-fit mx-auto text-3xl font-semibold text-[#005fab]'>
+          Step 3:
+        </p>
+      </div>
+      <div className='w-full flex justify-center mt-2'>
         <button
           type='button'
-          className='rounded bg-white hover:bg-[#eaf5fe] text-[#0176d3] px-6 py-2 text-lg font-semibold border-[2px] b border-[#0176d3] shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
+          className='rounded bg-white hover:bg-[#eaf5fe] text-[#0176d3] px-8 py-4 text-2xl font-semibold border-[2px] b border-[#0176d3] shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
           onClick={uploadCSVs}
         >
-          View Pipeline
+          View Pipeline Waterfall
         </button>
       </div>
       <div className='grid mt-10 grid-cols-[repeat(auto-fill,_minmax(350px,_1fr))] gap-8'>

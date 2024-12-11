@@ -1,9 +1,10 @@
 import React from 'react'
 
-const FileUploadInput = ({ id, name, title, loadFile }) => {
+const FileUploadInput = ({ id, name, step, title, loadFile }) => {
   return (
     <div className='mt-4 flex justify-center rounded-lg border-gray-900/25 px-6 py-20 bg-[#f1f0ef]'>
       <div className='text-center'>
+        <div className='text-3xl font-semibold text-[#005fab]'>{step}</div>
         <div className='mt-4 flex text-sm/6 text-gray-600'>
           <label
             htmlFor={id}
