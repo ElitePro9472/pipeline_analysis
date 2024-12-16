@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import FileUploadInput from '../components/FileUploadinput'
 import ServiceCard from '../components/ServiceCard'
-import AccurateIcon from '../assets/icons/accurate.svg'
-import InstitutionalIcon from '../assets/icons/institutional.svg'
-import SecureIcon from '../assets/icons/secure.svg'
+import LimitIcon from '../assets/icons/limit.png'
+import ClockIcon from '../assets/icons/clock.png'
+import RocketIcon from '../assets/icons/rocket.png'
 import PurchaseCard from '../components/PurchaseCard'
 import NeedMorePanel from '../components/NeedMorePanel'
 import { BACKEND_URL } from '../constant'
@@ -15,17 +15,17 @@ import { getBrowserFingerprint } from '../utlls/fingerprinter'
 
 const serviceData = [
   {
-    icon: SecureIcon,
+    icon: LimitIcon,
     title: 'Easy',
     text: 'All it takes is upload two simple files downloaded from your CRM with data that is readily available'
   },
   {
-    icon: InstitutionalIcon,
+    icon: ClockIcon,
     title: 'Fast',
     text: 'It takes seconds to generate your pipeline history waterfall'
   },
   {
-    icon: AccurateIcon,
+    icon: RocketIcon,
     title: 'No-Nonsense',
     text: 'No fancy modules to buy or complicated CRM implementations'
   }
@@ -73,9 +73,9 @@ const dataFileFormat = [
   // 'Opportunity Source',
   'Type',
   // 'Primary ERP',
-  'Net-New Dollars',
+  'Amount-Dollars', //'Amount-Dollars' 'Amount'
   'Close Date',
-  'Age',
+  // 'Age',
   'Discovery Date\r'
   // 'Lost Reason',
   // 'SQL Quarter',
@@ -85,13 +85,13 @@ const historyFileFormat = [
   'Opportunity Name',
   'To Stage',
   'From Stage',
-  'Amount',
-  'Expected Revenue',
-  'Probability (%)',
+  'Amount-Dollars',
+  // 'Expected Revenue',
+  // 'Probability (%)',
   'Close Date',
   'Last Modified',
   'Last Modified By',
-  'Forecast Category',
+  // 'Forecast Category',
   'Owner\r'
 ]
 const Home = () => {
@@ -101,6 +101,14 @@ const Home = () => {
   const [historyFile, setHistoryFile] = useState(null)
   const [showPaymentModal, setShowPaymentModal] = useState(false)
   const [clientSecret, setClientSecret] = useState('')
+  const [dataFileText, setDataFileText] = useState(
+    'Upload your current state pipeline data'
+  )
+  const [historyFileText, setHistoryFileText] = useState(
+    'Upload your pipeline history'
+  )
+  const [dataFileName, setDataFileName] = useState('')
+  const [historyFileName, setHistoryFileName] = useState('')
 
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
   const userInfo = useSelector(state => state.auth.userInfo)
@@ -129,8 +137,16 @@ const Home = () => {
         toast.warn('Invalid Format')
         return
       }
-      if (type === 'data') setDataFile(file)
-      else setHistoryFile(file)
+      console.log(file.name)
+      if (type === 'data') {
+        setDataFile(file)
+        setDataFileText(`Uploaded pipeline file:`)
+        setDataFileName(file.name)
+      } else {
+        setHistoryFile(file)
+        setHistoryFileText(`Uploaded history file:`)
+        setHistoryFileName(file.name)
+      }
     }
     reader.readAsText(file)
   }
@@ -160,7 +176,10 @@ const Home = () => {
               historyFile: res.list[1]
             })
           )
-          if (res.status === 'success') navigate('/chart')
+          toast.success('Upload successfully')
+          setTimeout(() => {
+            if (res.status === 'success') navigate('/chart')
+          }, 2000)
         })
         .catch(err => {
           console.error(err)
@@ -211,14 +230,16 @@ const Home = () => {
           id='upload-data'
           name='file-upload-data'
           step='Step 1:'
-          title='Upload your current state pipeline data'
+          title={dataFileText}
+          filename={dataFileName}
           loadFile={e => loadCSV(e, 'data')}
         />
         <FileUploadInput
           id='upload-history'
           name='file-upload-history'
           step='Step 2:'
-          title='Upload your pipeline history'
+          title={historyFileText}
+          filename={historyFileName}
           loadFile={e => loadCSV(e, 'history')}
         />
       </div>

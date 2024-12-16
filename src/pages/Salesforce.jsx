@@ -25,7 +25,7 @@ const Salesforce = () => {
               <li>- Close Date </li>
               <li>- Stage </li>
               <li>- Owner </li>
-              <li>- Amount(or equivalent, like Net-New Dollars) </li>
+              <li>- Amount(or equivalent, like Amount-Dollars) </li>
               <li>- Type</li>
             </ul>
           </li>

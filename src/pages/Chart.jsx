@@ -132,7 +132,7 @@ const Chart = () => {
           no: parseInt(key),
           opportunity_name: item['Opportunity Name'],
           stage: item['Stage'],
-          net_new_dollars: item['Net-New Dollars'],
+          net_new_dollars: item['Amount-Dollars'],
           created_date: moment(item['Created Date']).format('YYYY-MM-DD'),
           close_date: moment(item['Close Date']).format('YYYY-MM-DD')
         })

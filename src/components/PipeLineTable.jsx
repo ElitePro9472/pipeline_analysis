@@ -53,7 +53,7 @@ const columns = [
     sortFunction: (a, b) => sortString(a, b, 'stage')
   },
   {
-    name: 'Net-New Dollars',
+    name: 'Amount-Dollars',
     selector: row => row.net_new_dollars,
     sortable: true,
     format: row => row.net_new_dollars.toLocaleString(),
